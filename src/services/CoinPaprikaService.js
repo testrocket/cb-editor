@@ -1,9 +1,11 @@
 export default {
-  fetchCurrencyName: currencySymbol => {
-    return "name";
+  fetchCurrencyName: async currencySymbol => {
+    return await fetch(`https://api.coinpaprika.com/v1/coins/${currencySymbol}`)
+      .then(resp => resp.json());
   },
 
-  fetchCurrencyPrice: currencyName => {
-    return "price";
+  fetchCurrencyPrice: async currencyName => {
+    return await fetch(`https://api.coinpaprika.com/v1/coins/${currencyName}/exchanges`)
+      .then(resp => resp.json());
   }
 }
