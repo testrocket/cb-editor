@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
 import CryptoBlogEditor from './components/CryptoBlogEditor';
 
 function App() {
   return (
-    <div className="App">
+    <div>
+      <h2>Crypto blog editor</h2>
       <CryptoBlogEditor />
     </div>
   );
