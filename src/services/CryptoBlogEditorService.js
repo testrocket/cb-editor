@@ -6,7 +6,7 @@ export default async function interpolate(text) {
   const coins = await CoinPaprikaService.listCoins();
   const coinsSymbolToName = new Map();
 
-  async function interpolateNames(text) {
+  function interpolateNames(text) {
     const nameMatches = findMatches(/\{\{ Name\/(\w+) \}\}/g, text);
     for (let match of nameMatches) {
       const coinSymbol = match[1];
@@ -30,5 +30,5 @@ export default async function interpolate(text) {
     return text;
   }
 
-  return await interpolatePrices(await interpolateNames(text));
+  return await interpolatePrices(interpolateNames(text));
 }
