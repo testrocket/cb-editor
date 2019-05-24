@@ -1,9 +1,8 @@
 import React from "react";
-import CoinPaprikaService from "../services/CoinPaprikaService";
 import { debounce } from "lodash";
+import interpolate from "../services/CryptoBlogEditorService";
 
 import "./CryptoBlogEditor.css";
-import interpolate from "../services/CryptoBlogEditorService";
 
 export default class CryptoBlogEditor extends React.Component {
 
