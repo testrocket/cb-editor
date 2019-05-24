@@ -15,6 +15,10 @@ export default class CryptoBlogEditor extends React.Component {
     this.handleOnChangeDounced = debounce(this.handleOnChange, 1000);
   }
 
+  componentDidMount = () => {
+    this.fromTextAreaRef.current.focus();
+  }
+
   handleOnChange = async () => {
     const text = this.fromTextAreaRef.current.value;
     this.toTextAreaRef.current.value = await interpolate(text);
