@@ -1,11 +1,13 @@
+import axios from "axios";
+
 export default {
-  listCoins: () => {
-    return fetch(`https://api.coinpaprika.com/v1/coins`)
-      .then(resp => resp.json());
+  listCoins: async () => {
+    const response = await axios.get(`https://api.coinpaprika.com/v1/coins`);
+    return response.data;
   },
 
-  fetchCoinPrice: coinName => {
-    return fetch(`https://api.coinpaprika.com/v1/coins/${coinName}/exchanges`)
-      .then(resp => resp.json());
+  fetchCoinPrice: async coinName => {
+    const response = await axios.get(`https://api.coinpaprika.com/v1/coins/${coinName}/exchanges`);
+    return response.data;
   }
 }
